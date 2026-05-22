@@ -796,11 +796,3 @@ button:disabled {
         gap: 18px;
     }
 }
-.cafe-overlay-layer {
-    pointer-events: none;
-}
-
-.container {
-    position: relative;
-    z-index: 10;
-}
