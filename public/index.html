@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NgoPay - Account Based Model Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="cafe-bg-layer"></div>
+    <div class="cafe-overlay-layer"></div>
+
+    <div class="container">
+        <header class="app-header">
+            <div class="brand-wrapper">
+                <span class="brand-logo">⛾</span>
+                <div class="brand-title">
+                    <h1>NGOPAY</h1>
+                    <p>Platform Keuangan Berbasis Akun & Balance</p>
+                </div>
+            </div>
+            <button id="connect-btn" class="btn-connect">
+                <span>Hubungkan MetaMask</span>
+            </button>
+        </header>
+
+        <main class="main-content">
+    
+    <div class="top-grid">
+        
+        <section class="card balance-card">
+            <p class="card-subtitle">TOTAL SALDO AKUN ANDA</p>
+            <h2 id="wallet-balance" class="balance-text">0.0000 <span>ETH</span></h2>
+            <div class="account-info">
+                <span class="info-label">Dompet:</span>
+                <span id="wallet-address" class="info-value">Belum Terhubung</span>
+            </div>
+        </section>
+
+        <section class="card animation-card">
+            <img src="Refreshment.gif" alt="Cafe Vibe Animation" class="cafe-gif-element">
+            
+            </section>
+
+    </div>
+
+            <div class="form-grid">
+                <section class="card form-card">
+                    <div class="card-header">
+                        <h3>📥 Isi Saldo (Deposit)</h3>
+                    </div>
+                    <form id="deposit-form">
+                        <div class="input-group">
+                            <label for="dep-amount">Jumlah (ETH)</label>
+                            <input type="number" id="dep-amount" step="0.0001" placeholder="0.01" required min="0.0001">
+                        </div>
+                        <div class="input-group">
+                            <label for="dep-note">Catatan</label>
+                            <input type="text" id="dep-note" placeholder="Misal: Uang Bulanan, Gaji">
+                        </div>
+                        <button type="submit" id="btn-submit-dep" class="btn-action btn-deposit" disabled>Deposit Sekarang</button>
+                    </form>
+                </section>
+
+                <section class="card form-card">
+                    <div class="card-header">
+                        <h3>💸 Kirim Pembayaran (P2P)</h3>
+                    </div>
+                    <form id="transfer-form">
+                        <div class="input-group">
+                            <label for="tx-to">Alamat Dompet Penerima</label>
+                            <input type="text" id="tx-to" placeholder="0x..." required pattern="^0x[a-fA-F0-9]{40}$">
+                        </div>
+                        <div class="input-group">
+                            <label for="tx-amount">Jumlah Transfer (ETH)</label>
+                            <input type="number" id="tx-amount" step="0.0001" placeholder="0.01" required min="0.0001">
+                        </div>
+                        <div class="input-group">
+                            <label for="tx-note">Catatan</label>
+                            <input type="text" id="tx-note" placeholder="Misal: Bayar Patungan Kopi">
+                        </div>
+                        <button type="submit" id="btn-submit-tx" class="btn-action btn-transfer" disabled>Kirim Uang</button>
+                    </form>
+                </section>
+            </div>
+
+            <section class="card history-card">
+                <div class="history-title-block">
+                    <h3>🪶 Riwayat Transaksi Real-Time</h3>
+                    <span class="badge-tech">Account Model Logs</span>
+                </div>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Tipe</th>
+                                <th>Pengguna / Aliran Wallet</th>
+                                <th>Catatan</th>
+                                <th class="text-right">Nominal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs-display">
+                            <tr>
+                                <td colspan="4" class="empty-row">
+                                    Silahkan hubungkan MetaMask untuk sinkronisasi data blockchain...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="app-footer">
+            <p>Sistem Keuangan Peer-to-Peer Smart Contract — NgoPay Ecosystem 2026</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
